@@ -5,9 +5,10 @@
 
 #include "vectors.h"
 #include "optimism.h"
+#include "fusion.h"
     
 #define PRINTLN(x) std::cout << x << '\n';
-
+    
 template<typename T>
 void PRINT_VEC(T v)
 {
@@ -26,5 +27,11 @@ int main()
     std::shuffle(v.begin(), v.end(), std::mt19937{std::random_device{}()});
     v = goodVibes(v);
     PRINT_VEC(v);
+
+    std::vector<int> q(5);
+    std::iota(q.begin(), q.end(), 5);
+    gogeta(v, q);
+    PRINT_VEC(v);
+    PRINTLN(std::boolalpha << q.empty());
     return 0;
 }

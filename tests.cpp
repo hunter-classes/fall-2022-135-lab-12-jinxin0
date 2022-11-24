@@ -6,6 +6,7 @@
 #include "doctest.h"
 #include "vectors.h"
 #include "optimism.h"
+#include "fusion.h"
 
 auto v = makeVector(10);
 TEST_CASE("Task A")
@@ -20,4 +21,14 @@ TEST_CASE("Task B")
     v = goodVibes(v);
     std::vector<int> ans{1, 2, 3, 4};
     CHECK(std::equal(v.begin(), v.end(), ans.begin()));
+}
+
+TEST_CASE("Task C")
+{
+    std::vector<int> q(5);
+    std::iota(q.begin(), q.end(), 5);
+    gogeta(v, q);
+    std::vector<int> ans{1, 2, 3, 4, 5, 6, 7, 8, 9};
+    CHECK(std::equal(v.begin(), v.end(), ans.begin()));
+    CHECK(q.empty() == true);
 }

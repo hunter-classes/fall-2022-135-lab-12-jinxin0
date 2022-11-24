@@ -1,10 +1,12 @@
-OBJS = vectors.o optimism.o
+OBJS = vectors.o optimism.o fusion.o
 
 main: main.o ${OBJS}
 	g++ -o main main.o ${OBJS}
 
 tests: tests.o ${OBJS}
 	g++ -o tests tests.o ${OBJS}
+
+fusion.o: fusion.cpp fusion.h
 
 optimism.o: optimism.cpp optimism.h
 
