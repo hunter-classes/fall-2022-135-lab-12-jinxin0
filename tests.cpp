@@ -7,6 +7,7 @@
 #include "vectors.h"
 #include "optimism.h"
 #include "fusion.h"
+#include "pairwise.h"
 
 auto v = makeVector(10);
 TEST_CASE("Task A")
@@ -23,12 +24,20 @@ TEST_CASE("Task B")
     CHECK(std::equal(v.begin(), v.end(), ans.begin()));
 }
 
+std::vector<int> q(5);
 TEST_CASE("Task C")
 {
-    std::vector<int> q(5);
     std::iota(q.begin(), q.end(), 5);
     gogeta(v, q);
     std::vector<int> ans{1, 2, 3, 4, 5, 6, 7, 8, 9};
     CHECK(std::equal(v.begin(), v.end(), ans.begin()));
     CHECK(q.empty() == true);
+}
+
+TEST_CASE("Task D")
+{
+    std::fill_n(std::back_inserter(q), 5, 10);
+    auto x = sumPairWise(v, q);
+    std::vector<int> ans{11, 12, 13, 14, 15, 6, 7, 8, 9};
+    CHECK(x == ans);
 }

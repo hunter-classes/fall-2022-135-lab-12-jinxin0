@@ -6,6 +6,7 @@
 #include "vectors.h"
 #include "optimism.h"
 #include "fusion.h"
+#include "pairwise.h"
     
 #define PRINTLN(x) std::cout << x << '\n';
     
@@ -33,5 +34,9 @@ int main()
     gogeta(v, q);
     PRINT_VEC(v);
     PRINTLN(std::boolalpha << q.empty());
+
+    std::fill_n(std::back_inserter(q), 5, 10);
+    auto x = sumPairWise(v, q);
+    PRINT_VEC(x);
     return 0;
 }
